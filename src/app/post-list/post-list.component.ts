@@ -13,6 +13,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   constructor(private postService:PostService) { }
 
   ngOnInit() {
+    //récupère les posts dans l'array
     this.postSubscription=this.postService.postSubject.subscribe(
       (post:Post[])=>{
         this.posts=post;

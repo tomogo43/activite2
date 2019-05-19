@@ -19,19 +19,21 @@ export class AddPostComponent implements OnInit {
     this.initForm();
   }
 
+  //initialisation du formuaire
   initForm(){
     this.PostForm=this.formBuilder.group({
-      title:["",Validators.required],
+      title:["",Validators.required], 
       content:["",Validators.required]
     })
   }
 
+
   onSubmitForm(){
-    const title = this.PostForm.get("title").value;
+    const title = this.PostForm.get("title").value; //récupère les valeurs
     const content = this.PostForm.get("content").value;
     console.log(title+" "+content);
-    this.postService.addPost(new Post(title,content,new Date(),0));
-    this.router.navigate(['/posts']);
+    this.postService.addPost(new Post(title,content,new Date(),0)); //ajoute un nouveau post à l'array
+    this.router.navigate(['/posts']); //une fois crée renvoi aux posts
   }
 
 }
